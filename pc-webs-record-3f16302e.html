@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>世界杯 · 信息卡片介绍</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #fafafa;
+      color: #1e1e1e;
+      line-height: 1.7;
+      padding: 2rem 1.2rem;
+    }
+
+    .page {
+      max-width: 740px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 40px;
+      padding: 2.8rem 2rem 3.2rem;
+      box-shadow: 0 8px 28px -8px rgba(0,0,0,0.04);
+    }
+
+    /* 主视觉 hero */
+    .hero {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .hero-icon {
+      display: inline-block;
+      font-size: 2.8rem;
+      background: #f2f6fa;
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+      border-radius: 50%;
+      margin-bottom: 0.75rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #0f1923;
+      margin-bottom: 0.2rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #4b5a6a;
+      max-width: 400px;
+      margin: 0.5rem auto 0;
+      font-weight: 380;
+    }
+
+    /* 标题层级 */
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 480;
+      letter-spacing: -0.01em;
+      color: #15202b;
+      margin: 2.6rem 0 1.2rem 0;
+      border-bottom: 1px solid #eef2f6;
+      padding-bottom: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 460;
+      color: #1f2c3a;
+      margin-bottom: 0.5rem;
+    }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.4rem;
+      margin: 1.8rem 0 0.8rem;
+    }
+
+    .card {
+      background: #f7f9fc;
+      border-radius: 24px;
+      padding: 1.6rem 1.2rem 1.4rem;
+      transition: background 0.15s;
+      border: 1px solid #eef2f8;
+    }
+
+    .card:hover {
+      background: #f1f5fa;
+    }
+
+    .card .emoji {
+      font-size: 1.8rem;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #2a394a;
+      line-height: 1.6;
+    }
+
+    .card ul {
+      list-style: none;
+      margin-top: 0.8rem;
+    }
+
+    .card ul li {
+      font-size: 0.9rem;
+      color: #3d4d5e;
+      padding: 0.25rem 0;
+      border-bottom: 1px dashed #dce3ec;
+    }
+
+    .card ul li:last-child {
+      border-bottom: none;
+    }
+
+    /* 适合人群卡片 */
+    .audience-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    .audience-item {
+      background: #f7f9fc;
+      border-radius: 60px;
+      padding: 0.6rem 1.4rem 0.6rem 1.2rem;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border: 1px solid #e9eef5;
+      color: #1d2b39;
+    }
+
+    /* 自然链接段落 */
+    .link-paragraph {
+      background: #f4f7fc;
+      padding: 1.6rem 1.8rem;
+      border-radius: 28px;
+      margin: 2.4rem 0 1.8rem;
+      color: #1f2e3e;
+      border: 1px solid #e4eaf2;
+    }
+
+    .link-paragraph a {
+      color: #0b68b8;
+      text-decoration: none;
+      font-weight: 480;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .link-paragraph a:hover {
+      border-bottom-color: #0b68b8;
+    }
+
+    /* 提示 / FAQ 摘要 */
+    .faq-summary {
+      margin: 2.2rem 0 1rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #eef2f6;
+      padding: 1rem 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-weight: 500;
+      font-size: 1rem;
+      color: #1f2c3a;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .faq-question::before {
+      content: "Q";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #e7edf5;
+      color: #1f3a57;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .faq-answer {
+      margin-left: 2.4rem;
+      font-size: 0.95rem;
+      color: #385166;
+      padding: 0.2rem 0 0.2rem;
+    }
+
+    .faq-answer a {
+      color: #0b68b8;
+      text-decoration: none;
+      border-bottom: 1px solid #d0dceb;
+    }
+
+    .faq-answer a:hover {
+      border-bottom-color: #0b68b8;
+    }
+
+    /* 页脚 */
+    .footer-note {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: #7a8a9e;
+      border-top: 1px solid #eef2f6;
+      padding-top: 2rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 540px) {
+      body { padding: 1rem 0.8rem; }
+      .page { padding: 1.8rem 1.2rem; border-radius: 28px; }
+      .hero h1 { font-size: 1.8rem; }
+      .card-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .audience-row { gap: 0.6rem; }
+      .audience-item { font-size: 0.85rem; padding: 0.4rem 1rem; }
+      .link-paragraph { padding: 1.2rem; }
+    }
+
+    @media (min-width: 760px) {
+      .page { padding: 3.2rem 2.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Hero 主视觉 -->
+    <div class="hero">
+      <div class="hero-icon">⚽</div>
+      <h1>世界杯</h1>
+      <p>一个能快速帮你理解赛事信息与资讯的站点</p>
+    </div>
+
+    <!-- 用途卡片：这个网站用来做什么 -->
+    <h2>📌 这个网站主要做什么</h2>
+    <div class="card-grid">
+      <div class="card">
+        <span class="emoji">📋</span>
+        <h3>赛事基础信息</h3>
+        <p>集成赛程、小组分布、淘汰赛对阵等结构化内容，便于快速查阅。</p>
+      </div>
+      <div class="card">
+        <span class="emoji">🧭</span>
+        <h3>导航与整合</h3>
+        <p>将分散的世界杯相关资源、数据页面做集中梳理，减少自己收集的时间。</p>
+      </div>
+      <div class="card">
+        <span class="emoji">📊</span>
+        <h3>参考与查询</h3>
+        <p>提供球队、历史数据、规则变化等参考信息，适合做观赛前的简单功课。</p>
+      </div>
+      <div class="card">
+        <span class="emoji">🔁</span>
+        <h3>动态更新</h3>
+        <p>根据赛事阶段更新内容，聚焦当前赛程、出线形势等时效性信息。</p>
+      </div>
+    </div>
+
+    <!-- 适合人群 -->
+    <h2>👥 适合这样的人群</h2>
+    <div class="audience-row">
+      <span class="audience-item">⚽ 普通球迷</span>
+      <span class="audience-item">📅 赛程查询者</span>
+      <span class="audience-item">📖 新手观赛者</span>
+      <span class="audience-item">📚 数据爱好者</span>
+      <span class="audience-item">🧳 内容整理者</span>
+    </div>
+    <p style="margin-top: 0.6rem; color: #3a4b5f; font-size: 0.95rem;">
+      无论你只是想快速确认下一场比赛时间，还是希望系统了解某届赛事的基本框架，这个站点都能作为一个轻量的参考起点。
+    </p>
+
+    <!-- 自然链接段落：直接融入句子 -->
+    <div class="link-paragraph">
+      <p style="margin-bottom: 0.2rem;">
+        🌐 如果你正在寻找一个相对集中的信息起点，可以打开 
+        <a href="https://pc-webs-fifaworldcup.com">世界杯</a> 
+        页面，里面整理了赛程、队伍分布和部分历史数据，适合在观赛前后浏览对照。
+      </p>
+      <p style="margin-top: 0.8rem; font-size: 0.92rem; color: #3f556b;">
+        站点界面偏重信息陈列，没有过多营销或跳转引导，重点在于把内容本身呈现清楚。
+      </p>
+    </div>
+
+    <!-- FAQ 摘要 / 常见疑问 -->
+    <h2>❓ 常见疑问摘要</h2>
+    <div class="faq-summary">
+      <div class="faq-item">
+        <div class="faq-question">这个网站是官方渠道吗？</div>
+        <div class="faq-answer">不是，它是一个信息整理与导航型站点，素材均来自公开渠道，不代行官方职能。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">信息更新频率如何？</div>
+        <div class="faq-answer">赛程、积分等时效内容会跟随赛事阶段做同步，历史资料部分相对稳定。建议结合官方发布做交叉确认。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">需要注册或下载吗？</div>
+        <div class="faq-answer">不需要，页面内容直接在浏览器中打开即可查看，无附加注册流程。</div>
+      </div>
+    </div>
+
+    <!-- 一个简短的提示 / 使用场景 -->
+    <p style="font-size: 0.93rem; color: #3f5468; margin: 1.5rem 0 0.5rem; border-left: 3px solid #d1ddee; padding-left: 1rem;">
+      💡 小提示：你可以把 
+      <a href="https://pc-webs-fifaworldcup.com" style="color: #0b68b8; text-decoration: none; border-bottom: 1px solid #c8d7ea;">世界杯</a> 
+      页面添加到书签，比赛日快速查看赛程与对阵情况。
+    </p>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+      信息卡片 · 非官方页面 · 内容供参考
+    </div>
+
+  </div>
+</body>
+</html>
