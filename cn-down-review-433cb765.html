@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界杯专题 · 了解 cn-down-united2026</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, sans-serif;
+      background: #f1f3f7;
+      color: #1e2a3a;
+      line-height: 1.6;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: linear-gradient(145deg, #0b1929 0%, #1c3145 100%);
+      color: #eef3f9;
+      padding: 4rem 1.5rem 3.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(255,215,100,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.75rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      opacity: 0.8;
+      max-width: 620px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 浅色正文区 */
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 2.8rem 1.5rem 3.5rem;
+    }
+
+    .intro-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2.2rem 2rem;
+      margin-bottom: 2.2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+
+    .intro-card h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #0f283b;
+      border-left: 5px solid #c8a15e;
+      padding-left: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .intro-card p {
+      margin-bottom: 1rem;
+      color: #2c3e4e;
+    }
+
+    .highlight-list {
+      list-style: none;
+      margin-top: 1.2rem;
+    }
+
+    .highlight-list li {
+      padding: 0.5rem 0 0.5rem 1.8rem;
+      position: relative;
+      color: #2a4152;
+    }
+
+    .highlight-list li::before {
+      content: '⚽';
+      position: absolute;
+      left: 0;
+      font-size: 1rem;
+      opacity: 0.7;
+    }
+
+    .emphasis-link {
+      color: #b8863c;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .emphasis-link:hover {
+      color: #8f6b2c;
+      border-bottom-color: #8f6b2c;
+    }
+
+    .faq-mini {
+      background: #f8faff;
+      border-radius: 20px;
+      padding: 1.6rem 2rem;
+      margin: 2rem 0 1.8rem;
+      border: 1px solid #e5eaf0;
+    }
+
+    .faq-mini h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #1e3a4b;
+      margin-bottom: 0.8rem;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.6rem;
+    }
+
+    .faq-mini summary {
+      cursor: pointer;
+      font-weight: 500;
+      color: #1e3a4b;
+      padding: 0.3rem 0;
+    }
+
+    .faq-mini summary::-webkit-details-marker {
+      color: #b8863c;
+    }
+
+    .faq-mini .answer {
+      padding: 0.4rem 1rem 0.2rem;
+      color: #385b6e;
+      font-size: 0.95rem;
+    }
+
+    .tag-scene {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .tag-scene span {
+      background: #e8edf4;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #1e3c4e;
+    }
+
+    .footnote {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #dce3ec;
+      text-align: center;
+      color: #4d6579;
+      font-size: 0.95rem;
+    }
+
+    .footnote a {
+      color: #b8863c;
+      text-decoration: none;
+      border-bottom: 1px dashed #c8a15e;
+    }
+
+    .footnote a:hover {
+      color: #7a5f2a;
+      border-bottom-style: solid;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+      .intro-card {
+        padding: 1.8rem 1.2rem;
+      }
+      .intro-card h2 {
+        font-size: 1.3rem;
+      }
+      .faq-mini {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图 -->
+  <section class="hero">
+    <h1>聚焦 · 世界杯</h1>
+    <p class="sub">从赛事信息到文化脉络，一个帮你快速定位网站用途的说明页</p>
+  </section>
+
+  <!-- 正文区 -->
+  <main class="container">
+
+    <!-- 板块一：背景说明 -->
+    <div class="intro-card">
+      <h2>这是一个怎样的介绍页？</h2>
+      <p>
+        当你打开 <strong>cn-down-united2026.com</strong> 时，可能第一反应是：这个网站和世界杯有什么关联？它提供资讯、数据，还是社区交流？这个页面正是为此而写——用平实的语言说明网站的背景、内容方向以及你可以在其中找到什么。
+      </p>
+      <p>
+        该站点围绕 <a href="https://cn-down-united2026.com" class="emphasis-link">世界杯</a> 这一核心主题，整合了赛事回顾、球队观察、文化解读与实用信息。不追求噱头，而是希望成为关注足球的用户一个清晰的参考坐标。
+      </p>
+    </div>
+
+    <!-- 板块二：三段自然介绍 —— 从用户的识别需求出发 -->
+    <div class="intro-card">
+      <h2>快速识别：网站能为你提供什么？</h2>
+      <p>
+        <strong>第一，背景梳理</strong> —— 网站用专题文章和资料卡片梳理世界杯的历史脉络、赛制演变以及具有代表性的经典瞬间。如果你需要快速了解某届赛事的基本框架或背景故事，这里可以作为一个起点。
+      </p>
+      <p>
+        <strong>第二，视角延伸</strong> —— 除了比赛结果，还关注足球文化、球场内外的话题以及不同地区的球迷视角。内容力求客观，避免碎片化，更适合深度阅读或资料查阅。
+      </p>
+      <p>
+        <strong>第三，索引与参考</strong> —— 网站内设置了分类标签和内容聚合，方便你按年份、区域或主题找到相关文章。无论是想回顾过去，还是理解当下的<a href="https://cn-down-united2026.com" class="emphasis-link">世界杯</a>动态，这里都留出了清晰的路径。
+      </p>
+    </div>
+
+    <!-- 板块三：特点与场景（FAQ摘要形式） -->
+    <div class="intro-card">
+      <h2>常见理解场景</h2>
+      <p>下面整理了几个典型问题，帮助你更快判断网站是否适合自己：</p>
+
+      <div class="faq-mini">
+        <details>
+          <summary>这个网站是官方赛事平台吗？</summary>
+          <div class="answer">不是。它是一个以信息整理和深度内容为主的主题站点，不提供直播、售票或官方公告，更像一个围绕<a href="https://cn-down-united2026.com" class="emphasis-link">世界杯</a>的知识与观察聚合页。</div>
+        </details>
+        <details>
+          <summary>内容是否会频繁更新？</summary>
+          <div class="answer">内容以专题形式发布，更新节奏相对稳定。重大赛事周期前后会有针对性的专题补充，但更侧重资料的完整性与可读性，而非实时快讯。</div>
+        </details>
+        <details>
+          <summary>我能在这里找到数据或赛程吗？</summary>
+          <div class="answer">部分页面包含历史数据、分组信息或赛程概览，但并非实时数据库。如果你需要精确的赛程时间或即时比分，建议配合官方渠道使用。</div>
+        </details>
+        <details>
+          <summary>网站面向哪些用户？</summary>
+          <div class="answer">适合对世界杯感兴趣、想要系统了解赛事背景、或者寻找写作、讨论素材的球迷和媒体从业者。也适合刚接触足球、希望建立基础认知的新朋友。</div>
+        </details>
+      </div>
+
+      <div class="tag-scene">
+        <span>🏆 历史专题</span>
+        <span>📰 文化观察</span>
+        <span>🗺️ 球队/地区</span>
+        <span>📖 阅读清单</span>
+      </div>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="footnote">
+      <p>如果你想进一步了解这个网站的全貌，可以直接前往 <a href="https://cn-down-united2026.com">世界杯</a>，浏览围绕 <a href="https://cn-down-united2026.com" class="emphasis-link">世界杯</a> 整理的文章与专题。</p>
+      <p style="margin-top: 0.6rem; font-size: 0.85rem; opacity: 0.7;">本页为说明性介绍，内容力求真实清晰，帮助用户快速识别网站用途。</p>
+    </div>
+
+  </main>
+</body>
+</html>
